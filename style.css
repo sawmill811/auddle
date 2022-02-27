@@ -1,0 +1,90 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* basic stuff */
+
+html {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(rgb(23,23,23), rgb(31,29,54)); */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    background: linear-gradient(#cbcbd2, #ffffff);
+    background-attachment: fixed;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid blue;
+    height: 100vh;
+    width: 90vw;
+}
+
+.title-box {
+    font-size: 3em;
+    border: 2px solid green;
+    text-align: center;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 400;
+}
+
+#title-symbol {
+    font-size: 1.3em;
+}
+
+.audio-clip {
+    border: 2px solid green;
+    text-align: center;
+}
+
+.text-instructions {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.3em;
+}
+
+audio {
+    width: min(max(60vw,140px),250px);
+    height: 5vh;
+}
+
+.word-box {
+    text-align: center;
+    height: 60vh;
+    width: 80%;
+    border: 2px solid green;
+}
+
+.credits {
+    display: flex;
+    justify-content: center;
+    border: 2px solid green;
+    font-size: min(max(20px,2vh),5vh);
+    bottom: 1vh;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 300;
+}
+
+/* #github {
+    border: 1px solid red;
+} */
+
+#github-logo {
+    height: min(max(20px,3vh),8vh);
+}
