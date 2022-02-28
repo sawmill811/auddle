@@ -44,7 +44,7 @@ a {
 
 .title-box {
     position: absolute;
-    top: -0.2em;
+    top: -0.4em;
     margin: 0;
     font-size: 2.5em;
     /* border: 2px solid green; */
@@ -57,7 +57,7 @@ a {
     /* border: 1px solid red; */
     margin: 0;
     padding: 0;
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
