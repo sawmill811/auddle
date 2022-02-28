@@ -9,11 +9,12 @@
     <link rel = "icon" href = "images/title.png" type = "image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- ♭ use this symbol -->
+    
     <div class="container">
         <div class="title-box">
             <span id="title-symbol">♭</span>ollydle
@@ -27,7 +28,6 @@
         </div>
         <div class="word-box">
             <div class="text-instructions">guess the movie in 6 tries! (no spaces)</div>
-            <input class="guess" placeholder="type and hit enter" minlength="5" maxlength="5">
             <div class="container-box">
                 <div class="row-1">
                     <span id="box-1"></span>
@@ -73,11 +73,51 @@
                 </div>
             </div>
         </div>
+        <div class="keyboard">
+            <div class="row1">
+                <div class="q">Q</div>
+                <div class="w">W</div>
+                <div class="e">E</div>
+                <div class="r">R</div>
+                <div class="t">T</div>
+                <div class="y">Y</div>
+                <div class="u">U</div>
+                <div class="i">I</div>
+                <div class="o">O</div>
+                <div class="p">P</div>
+            </div>
+            <div class="row2">
+                <div class="a">A</div>
+                <div class="s">S</div>
+                <div class="d">D</div>
+                <div class="f">F</div>
+                <div class="g">G</div>
+                <div class="h">H</div>
+                <div class="j">J</div>
+                <div class="k">K</div>
+                <div class="l">L</div>
+            </div>
+            <div class="row3">
+                <div class="Enter"><img id="enter" src="/images/return.svg" alt="enter"></div>
+                <div class="z">Z</div>
+                <div class="x">X</div>
+                <div class="c">C</div>
+                <div class="v">V</div>
+                <div class="b">B</div>
+                <div class="n">N</div>
+                <div class="m">M</div>
+                <div class="Backspace"><img id="bksp" src="/images/backspace-outline.svg" alt="backspace"></div>
+            </div>
+        </div>
         <div class="credits">
             <a id="github" href="https://github.com/sawmill811">made by Soumil Sinha 
-                <img id="github-logo" src="images/github.svg" alt="github">
             </a>
+            <a id="github-logo" href="https://github.com/sawmill811"><img src="images/github.svg" style="width:100%" alt="github">
+            </a>
+            
         </div>
     </div>
+    
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>

@@ -10,6 +10,7 @@ html {
 
 body {
     display: flex;
+    position: absolute;
     justify-content: center;
     margin: 0;
     padding: 0;
@@ -18,7 +19,9 @@ body {
     flex-direction: column;
     align-items: center; */
     background: linear-gradient(#cbcbd2, #ffffff);
-    background-attachment: fixed;
+    border: 1px solid orange;
+    /* background-attachment: fixed; */
+    height: 100%;
     width: 100%;
 }
 
@@ -29,39 +32,54 @@ a {
 
 .container {
     display: flex;
+    /* margin: auto; */
+    /* padding: 0; */
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    /* border: 3px solid blue; */
-    height: 98vh;
-    width: 90vw;
+    border: 3px solid blue;
+    /* height: 98%; */
+    width: 100%;
 }
 
 .title-box {
-    font-size: 3em;
-    /* border: 2px solid green; */
+    position: absolute;
+    top: -0.2em;
+    margin: 0;
+    font-size: 2.5em;
+    border: 2px solid green;
     text-align: center;
     font-family: "Fredoka", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 #title-symbol {
+    border: 1px solid red;
+    margin: 0;
+    padding: 0;
     font-size: 1.3em;
+    font-weight: bold;
 }
 
 .audio-clip {
-    /* border: 2px solid green; */
+    border: 2px solid green;
+    /* position: absolute; */
+    margin-top: 4em;
     text-align: center;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .text-instructions {
     font-family: 'League Spartan', sans-serif;
-    font-size: 1.3em;
+    font-size: min(1.3em,2.3vh);
 }
 
 audio {
-    width: min(max(60vw,140px),250px);
-    height: 5vh;
+    width: min(max(55vw,130px),210px);
+    height: 4vh;
 }
 
 .word-box {
@@ -70,14 +88,15 @@ audio {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    height: 60vh;
-    width: min(80%,400px);
-    /* border: 2px solid green; */
+    /* position: absolute; */
+    /* top:-1em; */
+    height: 50vh;
+    width: min(90%,45vh);
+    border: 2px solid green;
 }
 
-.guess {
-    width: 60%;
-    height: min(3.5vh,10%);
+.word-box .text-instructions {
+    border: 1px solid red;
 }
 
 .container-box {
@@ -85,9 +104,9 @@ audio {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     width: 100%;
-    height: 85%;
+    height: 90%;
     bottom: 0;
 }
 
@@ -101,20 +120,64 @@ div[class|=row] {
 
 span[id|=box] {
     /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     height: 100%;
     width: 17%;
-    /* border: 1px solid black; */
-    background: linear-gradient(#161620, #797777);
+    border: 2px solid rgb(160, 157, 157);
+    border-radius: 10%;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.5em;
+    color:#f0f8ff;
+    /* background: linear-gradient(#161620, #797777); */
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid green;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 400;
+    width: min(100%, 90vh);
+    height: 20vh;
+}
+
+.keyboard > div {
+    /* border: 1px solid red; */
+    height: 31%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#bksp, #enter {
+    width: max(8.5%,20px);
+}
+
+.keyboard > div > div {
+    cursor: pointer;
+    background:rgb(223, 221, 221);
+    border: 1px solid #707072;
+    border-radius: 5%;
+    width: 9%;
+}
+
+.Backspace, .Enter {
+    display: flex;
+    justify-content: center;
 }
 
 .credits {
     display: flex;
     justify-content: center;
-    /* border: 2px solid green; */
-    font-size: min(max(20px,2vh),5vh);
-    bottom: 1vh;
+    /* align-items: center; */
+    border: 2px solid green;
+    font-size: min(max(10px,1vh),3vh);
+    /* bottom: 1vh; */
     font-family: "Fredoka", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* #github {
@@ -122,5 +185,27 @@ span[id|=box] {
 } */
 
 #github-logo {
-    height: min(max(20px,3vh),8vh);
+    /* position: absolute; */
+    border: 1px solid red;
+    width: 13px;
+    /* padding: 5px; */
+    /* height: min(max(20px,3vh),8vh); */
+    /* height: 25px; */
+    /* top: 100px; */
+}
+
+@keyframes green {
+    0% {background: rgba(53, 145, 3, 0);}
+    100% {background: rgba(53, 145, 3, 1); color: #f0f8ff;}
+}
+
+@keyframes yellow {
+    
+    0% {background: rgba(224, 196, 11,0);}
+    100% {background: rgba(224, 196, 11,1);color: #f0f8ff;}
+}
+
+@keyframes grey {
+    0% {background: rgba(84, 81, 74,0);}
+    100% {background: rgba(84, 81, 74,1);color: #f0f8ff;}
 }
