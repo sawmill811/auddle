@@ -44,7 +44,7 @@ a {
 
 .title-box {
     position: absolute;
-    top: -0.4em;
+    top: 0em;
     margin: 0;
     font-size: 2.5em;
     /* border: 2px solid green; */
@@ -54,12 +54,21 @@ a {
 }
 
 #title-symbol {
+    display: inline;
+    width: 19px;
     /* border: 1px solid red; */
     margin: 0;
     padding: 0;
-    font-size: 1.5em;
     font-weight: bold;
 }
+/* 
+#dd {
+    display:inline;
+    border: 1px solid red;
+    width: 43px;
+    display:flex;
+    justify-content: space-around;
+} */
 
 .audio-clip {
     /* border: 2px solid green; */
@@ -94,10 +103,10 @@ audio {
     width: min(90%,45vh);
     /* border: 2px solid green; */
 }
-
+/* 
 .word-box .text-instructions {
-    /* border: 1px solid red; */
-}
+    border: 1px solid red;
+} */
 
 .container-box {
     display: flex;
@@ -195,8 +204,8 @@ span[id|=box] {
 }
 
 @keyframes green {
-    0% {background: rgba(53, 145, 3, 0);}
-    100% {background: rgba(53, 145, 3, 1); color: #f0f8ff;}
+    0% {background: rgb(65, 179, 4, 0);}
+    100% {background: rgb(125,183,0); color: #f0f8ff;}
 }
 
 @keyframes yellow {

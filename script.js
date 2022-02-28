@@ -4,7 +4,7 @@ var guess_;
 var currentLevel = 1;
 var currentBox = 1;
 
-var colors = ["#54514a","#e0c40b","#359103"];
+var colors = ["#54514a","#e0c40b","rgb(125,183,0)"];
 var textColor = ["#21241f","#f0f8ff"];
 const delay = 100;
 // elements
@@ -104,6 +104,7 @@ function submit(guess) {
     for(let i = 0; i<guess.length; i++) {
         if (guess[i]===answer[i]) {
             colorBox(i, colors[2]);
+            colorKey(guess[i],colors[2]);
         }
         else {
             let count = 0;
@@ -114,9 +115,11 @@ function submit(guess) {
             }
             if (count>0) {
                 colorBox(i, colors[1]);
+                colorKey(guess[i],colors[1]);
             }
             else{
                 colorBox(i, colors[0]);
+                colorKey(guess[i],colors[0]);
             }
         }
         // await sleep(delay);
@@ -128,15 +131,30 @@ function colorBox(boxNum, color) {
     console.log(boxNum,row.children[boxNum]);
     let box = row.children[boxNum];
     if (color === colors[0]) {
-        box.style.animation = "grey 0.5s ease";
+        box.style.animation = "grey 0.8s ease";
     }
     else if (color === colors[1]) {
-        box.style.animation = "yellow 0.5s ease";
+        box.style.animation = "yellow 0.8s ease";
     }
     else {
-        box.style.animation = "green 0.5s ease";
+        box.style.animation = "green 0.8s ease";
     }
     box.style.background = color;
     box.style.color = textColor[1];
+}
+
+function colorKey(key, color) {
+    let key_ = document.querySelector("."+key.toLowerCase());
+    if (color === colors[0]) {
+        key_.style.animation = "grey 0.8s ease";
+    }
+    else if (color === colors[1]) {
+        key_.style.animation = "yellow 0.8s ease";
+    }
+    else {
+        key_.style.animation = "green 0.8s ease";
+    }
+    key_.style.background = color;
+    key_.style.color = textColor[1];
 }
 
