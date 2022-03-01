@@ -1,16 +1,18 @@
+// elements
+
+var era = "2010"
 const answer = "UDAAN";
 var guess = [];
 var guess_;
 var currentLevel = 1;
 var currentBox = 1;
 
-var colors = ["#54514a","#e0c40b","rgb(125,183,0)"];
-var textColor = ["#21241f","#f0f8ff"];
+const colors = ["#54514a","#e0c40b","rgb(125,183,0)"];
+const textColor = ["#21241f","#f0f8ff"];
+const finished = ["brilliant!","magnificent!","great work!","well done!","spot on!","correct!","you lost!"];
 const delay = 100;
-// elements
 
-var testing = ['U','D','A','A','N'];
-
+chooseEra();
 
 // listeners
 
@@ -29,8 +31,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
+// functions
+
+function chooseEra() {
+    
+}
+
 function handleKeys(e) {
 
+    let messageBox = document.querySelector(".message-box");
+    let message = messageBox.firstChild;
 
     let inp ="";
 
@@ -44,6 +54,8 @@ function handleKeys(e) {
     console.log(inp);
 
     if (guess_!==answer && currentLevel<=6){
+        messageBox.style.display = "none";
+
         // document.documentElement.removeEventListener('keydown');
         // console.log("still guessing");
     
@@ -59,16 +71,29 @@ function handleKeys(e) {
             let box = row.children[currentBox-2];
             guess.pop(box.innerHTML);
             box.innerHTML = "";
+            box.style.animation = "none";
             currentBox-=1;
         }
         else if (inp === 'Enter') {
             if (currentBox<=5) {
-                // display too short message
+                message.innerHTML = "too short!";
+                messageBox.style.display = "flex";
             }
             else {
                 currentBox = 1;
                 submit(guess);
                 guess_ = guess.join('');
+                if (guess_ === answer) {
+                    message.innerHTML = finished[currentLevel-1];
+                    messageBox.style.display = "flex";
+                    document.documentElement.removeEventListener('keydown',handleKeys,false);
+                }
+                else if (currentLevel==6){
+                    message.innerHTML = finished[currentLevel];
+                    messageBox.style.display = "flex";
+                    messageBox.before.style.width = messageBox.style.width;
+                    document.documentElement.removeEventListener('keydown',handleKeys,false);
+                }
                 guess = [];
                 currentLevel+=1;
             }
@@ -81,7 +106,6 @@ function handleKeys(e) {
     // console.log(e.key);
 }
 
-// functions
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -96,6 +120,7 @@ function updateLevel(letter) {
     let box = row.children[currentBox-1];
     box.innerHTML = letter;
     box.style.color = textColor[0];
+    box.style.animation = "zoom-in-out 0.1s ease 2 alternate";
     currentBox+=1;
 }
 

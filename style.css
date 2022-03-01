@@ -32,6 +32,7 @@ a {
 
 .container {
     display: flex;
+    user-select: none;
     /* margin: auto; */
     /* padding: 0; */
     flex-direction: column;
@@ -83,6 +84,7 @@ a {
 
 .text-instructions {
     font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
     font-size: min(1.3em,2.3vh);
 }
 
@@ -141,6 +143,39 @@ span[id|=box] {
     font-size: 1.5em;
     color:#f0f8ff;
     /* background: linear-gradient(#161620, #797777); */
+}
+
+.message-box {
+    display: none;
+    align-items: center;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 400;
+    font-size: min(1.3em,2.3vh);
+    width: fit-content;
+    height: 20px;
+    /* border: 1px solid red; */
+    background: #f5f5f5;
+    border:1px solid rgb(63, 63, 63);
+    border-radius: 10px;
+    transform: scaleX(1.2);
+    z-index: 2;
+}
+/* 
+.message-box::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    border:1px solid red;
+    height: 25px;
+    transform: scaleX(1.25);
+    filter: blur(5px);
+    background:#d8d8d8;
+    z-index: -10;
+    opacity: 0.7;
+} */
+
+.message {
+    transform: scaleX(0.83);
 }
 
 .keyboard {
@@ -219,4 +254,9 @@ span[id|=box] {
 @keyframes grey {
     0% {background: rgba(84, 81, 74,0);}
     100% {background: rgba(84, 81, 74,1);color: #f0f8ff;}
+}
+
+@keyframes zoom-in-out {
+    0% {}
+    100% {transform: scale(1.1);} 
 }
