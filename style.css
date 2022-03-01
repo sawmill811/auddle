@@ -170,11 +170,13 @@ span[id|=box] {
     background:rgb(223, 221, 221);
     border: 1px solid #707072;
     border-radius: 5%;
+    padding: 2px;
     width: 9%;
 }
 
 .Backspace, .Enter {
     display: flex;
+    padding: 0;
     justify-content: center;
 }
 
