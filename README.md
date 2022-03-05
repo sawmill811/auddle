@@ -2,7 +2,6 @@
 listen to audio, guess the movie name in 6 tries<br>bollywood spin off of wordle
 
 ## to do 
-* add pop up on site startup which allows to choose era of movie - 1990s, 2000s, 2010s
 * add provision of movie length being from 4 letters to 7 letters long
 * go to youtube, search playlist for respective era and filter songs from movies whose names are 4 to 7 letters long
 * download all those audio, crop them to about 30 seconds and store them in github with the name of movie, stored in folder acc to era
