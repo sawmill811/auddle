@@ -15,9 +15,9 @@ body {
     margin: 0;
     padding: 0;
     /* background: linear-gradient(rgb(23,23,23), rgb(31,29,54)); */
-    /* display: flex;
+    /* display: flex;*/
     flex-direction: column;
-    align-items: center; */
+    align-items: center;
     background: linear-gradient(#cbcbd2, #ffffff);
     /* border: 1px solid orange; */
     /* background-attachment: fixed; */
@@ -30,17 +30,47 @@ a {
     color: inherit;
 }
 
+.era {
+    /* border: 2px solid red; */
+    height: 70vh;
+    position: absolute;
+    margin: auto;
+    width: fit-content;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    font-size: min(100px,13vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: opacity 0.5s ease;
+    border-radius: 5%;
+    opacity: 0;
+}
+
+.era-1990, .era-2000, .era-2010 {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+}
+
+.era-1990:hover, .era-2000:hover, .era-2010:hover {
+    transform: scale(1.1);
+}
+
 .container {
     display: flex;
     user-select: none;
     /* margin: auto; */
-    /* padding: 0; */
+    padding: 0;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     /* border: 3px solid blue; */
-    /* height: 98%; */
+    height: 100%;
     width: 100%;
+    transition: opacity 0.2s ease;
+    opacity: 0;
 }
 
 .title-box {
@@ -62,6 +92,11 @@ a {
     padding: 0;
     font-weight: bold;
 }
+
+.era-text {
+    font-size: 0.5em;
+}
+
 /* 
 #dd {
     display:inline;
@@ -74,7 +109,7 @@ a {
 .audio-clip {
     /* border: 2px solid green; */
     /* position: absolute; */
-    margin-top: 4em;
+    margin-top: 3.5em;
     text-align: center;
     height: 45px;
     display: flex;

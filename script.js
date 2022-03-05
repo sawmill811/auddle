@@ -1,6 +1,6 @@
 // elements
 
-var era = "2010"
+var era = null;
 const answer = "UDAAN";
 var guess = [];
 var guess_;
@@ -12,13 +12,39 @@ const textColor = ["#21241f","#f0f8ff"];
 const finished = ["brilliant!","magnificent!","great work!","well done!","spot on!","correct!","you lost!"];
 const delay = 100;
 
-chooseEra();
-
 // listeners
 
-document.documentElement.addEventListener('keydown',handleKeys,false);
-
 document.addEventListener('DOMContentLoaded', (event) => {
+
+    // choose era pop up
+    document.querySelector(".container").style.display = "none";
+    document.querySelector(".era").style.display = "flex";
+    document.querySelector(".era").style.opacity = "1";
+    document.querySelector(".era-1990").addEventListener("click", function() {
+        setEra("1990");
+        activateKeyboard();
+    });
+    document.querySelector(".era-2000").addEventListener("click", function() {
+        setEra("2000");
+        activateKeyboard();
+    });
+    document.querySelector(".era-2010").addEventListener("click", function() {
+        setEra("2010");
+        activateKeyboard();
+    });
+
+    // choose song
+
+
+});
+
+// functions
+
+function activateKeyboard() {
+
+    document.documentElement.addEventListener('keydown',handleKeys,false);
+
+    // activate keyboard
     let keyb_rows = document.querySelector(".keyboard").children;
     for (let i=0;i<keyb_rows.length;i++) {
         let keys = (keyb_rows[i].children);
@@ -29,12 +55,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         }
     }
-});
+}
 
-// functions
-
-function chooseEra() {
-    
+async function setEra(input_era) {
+    era = input_era;
+    document.querySelector(".era").style.opacity = "0";
+    await sleep(500);
+    document.querySelector(".era").style.display = "none";
+    document.querySelector(".container").style.display = "flex";
+    await sleep(200);
+    document.querySelector(".container").style.opacity = "1";
+    document.querySelector(".era-text").innerHTML = "'"+era.slice(2);
+    console.log(era);
 }
 
 function handleKeys(e) {
