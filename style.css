@@ -70,7 +70,8 @@ a {
     height: 100%;
     width: 100%;
     transition: opacity 0.2s ease;
-    opacity: 0;
+    opacity: 1;         
+    /* make opacity 1 whenever you need to add era */
 }
 
 .title-box {
@@ -171,7 +172,7 @@ span[id|=box] {
     align-items: center;
     text-align: center;
     height: 100%;
-    width: 17%;
+    width: 12%;
     border: 2px solid rgb(160, 157, 157);
     border-radius: 10%;
     font-family: 'League Spartan', sans-serif;
