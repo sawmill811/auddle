@@ -70,7 +70,7 @@ async function setEra(input_era) {
     await sleep(200);
     document.querySelector(".container").style.opacity = "1";
     // document.querySelector(".era-text").innerHTML = "'"+era.slice(2);
-    console.log(era);
+    // console.log(era);
 }
 
 function handleKeys(e) {
@@ -87,7 +87,7 @@ function handleKeys(e) {
         inp = e.key;
     }
 
-    console.log(inp);
+    // console.log(inp);
 
     if (guess_!==answer && currentLevel<=6){
         messageBox.style.display = "none";
@@ -96,7 +96,7 @@ function handleKeys(e) {
         // console.log("still guessing");
     
         if (isLetter(inp)) {
-            if (currentBox<=5) {
+            if (currentBox<=answer.length) {
                 let key = inp.toUpperCase();
                 guess.push(key);
                 updateLevel(key)
@@ -111,7 +111,7 @@ function handleKeys(e) {
             currentBox-=1;
         }
         else if (inp === 'Enter') {
-            if (currentBox<=5) {
+            if (currentBox<=answer.length) {
                 message.innerHTML = "too short!";
                 messageBox.style.display = "flex";
             }
@@ -127,7 +127,7 @@ function handleKeys(e) {
                 else if (currentLevel==6){
                     message.innerHTML = finished[currentLevel];
                     messageBox.style.display = "flex";
-                    messageBox.before.style.width = messageBox.style.width;
+                    // messageBox.before.style.width = messageBox.style.width;
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
                 }
                 guess = [];
@@ -161,7 +161,7 @@ function updateLevel(letter) {
 }
 
 function submit(guess) {
-    console.log(guess);
+    // console.log(guess);
     for(let i = 0; i<guess.length; i++) {
         if (guess[i]===answer[i]) {
             colorBox(i, colors[2]);
@@ -189,7 +189,7 @@ function submit(guess) {
 
 function colorBox(boxNum, color) {
     let row = document.querySelector(".row-"+(currentLevel));
-    console.log(boxNum,row.children[boxNum]);
+    // console.log(boxNum,row.children[boxNum]);
     let box = row.children[boxNum];
     if (color === colors[0]) {
         box.style.animation = "grey 0.8s ease";
