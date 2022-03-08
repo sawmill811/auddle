@@ -112,12 +112,20 @@ a {
     /* position: absolute; */
     margin-top: 3.5em;
     text-align: center;
-    height: 45px;
+    height: 65px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
+@media (orientation: landscape) {
+
+    .audio-clip {
+        height: 45px;
+    }
+
+
+}
 .text-instructions {
     font-family: 'League Spartan', sans-serif;
     font-weight: 500;
@@ -213,6 +221,7 @@ span[id|=box] {
     transform: scaleX(1.2);
     transition: all 0.1s ease;
     z-index: 2;
+    cursor: pointer;
 }
 
 .clue2 {

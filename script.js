@@ -11,7 +11,7 @@ var currentBox = 1;
 
 const colors = ["#54514a","#e0c40b","rgb(125,183,0)"];
 const textColor = ["#21241f","#f0f8ff"];
-const finished = ["brilliant!","magnificent!","great work!","well done!","spot on!","correct!","no attempts left!","you lost!"];
+const finished = ["brilliant!","magnificent!","great work!","well done!","spot on!","correct!","no attempts left!","hard luck!"];
 const delay = 100;
 
 const movies2000 = ["race","jabwemet","faltu","jannat","fanaa","partner","murder2","dhoom2",""]
@@ -74,21 +74,28 @@ async function clueNeeded(cb) {
     await sleep(100);
     cb.style.opacity = "0";
     cb.style.display = "none";
+    penalty = 2;
+
+    console.log(currentLevel, num_guesses, penalty);
     
-    if (currentLevel>=num_guesses-penalty) {
+    if (currentLevel>num_guesses-penalty) {
         let messageBox = document.querySelector(".message-box");
         let message = messageBox.firstChild;
         message.innerHTML = finished[num_guesses];
         messageBox.style.display = "flex";
         document.documentElement.removeEventListener('keydown',handleKeys,false);
+        console.log("hello");
     }
     else {
         document.querySelector(".clue2").style.display = "flex";
         await sleep(100);
         document.querySelector(".clue2").style.opacity = "1";
-        document.querySelector(".row-"+num_guesses).style.opacity = "0";
-        document.querySelector(".row-"+num_guesses).style.display = "hidden";
-        penalty = 1;
+        document.querySelector("#guess-instructions").innerHTML = "guess the movie in " + (num_guesses-penalty) +" attempts!";
+    }
+
+    for (let i=0; i<penalty; i++) {
+        document.querySelector(".row-"+(num_guesses-i)).style.opacity = "0";
+        document.querySelector(".row-"+(num_guesses-i)).style.display = "hidden";
     }
 }
 
