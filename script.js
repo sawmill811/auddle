@@ -2,6 +2,8 @@
 
 var era = null;
 const answer = "SAILAAB";
+const num_guesses = 6;
+var penalty = 0;
 var guess = [];
 var guess_;
 var currentLevel = 1;
@@ -9,10 +11,12 @@ var currentBox = 1;
 
 const colors = ["#54514a","#e0c40b","rgb(125,183,0)"];
 const textColor = ["#21241f","#f0f8ff"];
-const finished = ["brilliant!","magnificent!","great work!","well done!","spot on!","correct!","you lost!"];
+const finished = ["brilliant!","magnificent!","great work!","well done!","spot on!","correct!","no attempts left!","you lost!"];
 const delay = 100;
 
 const movies2000 = ["race","jabwemet","faltu","jannat","fanaa","partner","murder2","dhoom2",""]
+
+let cluebox = document.querySelector(".message-box2");
 
 // listeners
 
@@ -37,6 +41,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     activateKeyboard();
 
+    cluebox.addEventListener("click", async function() {
+        clueNeeded(cluebox);
+    });
+
     // choose song
 
 
@@ -58,6 +66,29 @@ function activateKeyboard() {
                 handleKeys(keys[j].className);
             });
         }
+    }
+}
+
+async function clueNeeded(cb) {
+    cb.style.transform = "scale(0.2,0.17)";
+    await sleep(100);
+    cb.style.opacity = "0";
+    cb.style.display = "none";
+    
+    if (currentLevel>=num_guesses-penalty) {
+        let messageBox = document.querySelector(".message-box");
+        let message = messageBox.firstChild;
+        message.innerHTML = finished[num_guesses];
+        messageBox.style.display = "flex";
+        document.documentElement.removeEventListener('keydown',handleKeys,false);
+    }
+    else {
+        document.querySelector(".clue2").style.display = "flex";
+        await sleep(100);
+        document.querySelector(".clue2").style.opacity = "1";
+        document.querySelector(".row-"+num_guesses).style.opacity = "0";
+        document.querySelector(".row-"+num_guesses).style.display = "hidden";
+        penalty = 1;
     }
 }
 
@@ -86,10 +117,10 @@ function handleKeys(e) {
     else{
         inp = e.key;
     }
+    
+    console.log(inp);
 
-    // console.log(inp);
-
-    if (guess_!==answer && currentLevel<=6){
+    if (guess_!==answer && currentLevel<=num_guesses-penalty){
         messageBox.style.display = "none";
 
         // document.documentElement.removeEventListener('keydown');
@@ -124,8 +155,8 @@ function handleKeys(e) {
                     messageBox.style.display = "flex";
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
                 }
-                else if (currentLevel==6){
-                    message.innerHTML = finished[currentLevel];
+                else if (currentLevel==num_guesses-penalty){
+                    message.innerHTML = finished[num_guesses+1];
                     messageBox.style.display = "flex";
                     // messageBox.before.style.width = messageBox.style.width;
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
