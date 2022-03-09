@@ -176,7 +176,7 @@ div[class|=row] {
 
 span[id|=box] {
     /* position: absolute; */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     text-align: center;

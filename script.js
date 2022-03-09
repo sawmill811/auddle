@@ -1,7 +1,7 @@
 // elements
 
 var era = null;
-const answer = "SAILAAB";
+const answer = "GHAYAL";
 const num_guesses = 6;
 var penalty = 0;
 var guess = [];
@@ -38,6 +38,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //     setEra("2010");
     //     activateKeyboard();
     // });
+
+    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/ghayal_main.mp3"
+    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/ghayal_clue.mp3"
+
+    for (let i=1; i<=num_guesses; i++) {
+        let row = document.querySelector(".row-"+i);
+        let boxes = row.children;
+        for (let j = 1; j<=answer.length; j++) {
+            boxes[j-1].style.display = "flex";
+            boxes[j-1].style.width = Math.min(85/answer.length, 17)+"%";
+        }
+    }
 
     activateKeyboard();
 
