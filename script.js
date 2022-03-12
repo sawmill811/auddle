@@ -53,6 +53,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     activateKeyboard();
 
+    cluebox.addEventListener("mouseover", function() {
+        penalty = 2;
+        for (let i=num_guesses-penalty+1; i<=num_guesses; i++) {
+            let row = document.querySelector(".row-"+i);
+            row.style.opacity = "0.5";
+        }
+        penalty = 0;
+    });
+
+    cluebox.addEventListener("mouseout", function() {
+        if (penalty!==2) {
+            penalty = 2;
+        
+            for (let i=num_guesses-penalty+1; i<=num_guesses; i++) {
+                let row = document.querySelector(".row-"+i);
+                row.style.opacity = "1";
+            }
+        
+            penalty = 0;
+        }
+    });
+
     cluebox.addEventListener("click", async function() {
         clueNeeded(cluebox);
     });
@@ -96,7 +118,6 @@ async function clueNeeded(cb) {
         message.innerHTML = finished[num_guesses];
         messageBox.style.display = "flex";
         document.documentElement.removeEventListener('keydown',handleKeys,false);
-        console.log("hello");
     }
     else {
         document.querySelector(".clue2").style.display = "flex";
