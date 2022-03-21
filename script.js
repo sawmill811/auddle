@@ -1,7 +1,7 @@
 // elements
 
 var era = null;
-const answer = "CHAAHAT";
+const answer = "TALAASH";
 const num_guesses = 6;
 var penalty = 0;
 var guess = [];
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //     activateKeyboard();
     // });
 
-    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/chaahat_main.mp3"
-    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/chaahat_clue.mp3"
+    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/talaash_main.mp3"
+    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/talaash_clue.mp3"
 
     for (let i=1; i<=num_guesses; i++) {
         let row = document.querySelector(".row-"+i);
