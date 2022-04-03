@@ -114,7 +114,7 @@ function displayAnswer() {
     document.querySelector("#link").href = link;
     document.querySelector("#link").innerText= link;
     document.querySelector(".finish").style.display = "block";
-    document.querySelector(".finish").innerHTML = "answer: " + answer;
+    document.querySelector(".finish_").innerText = "answer: " + answer + " ";
 }
 
 async function clueNeeded(cb) {
