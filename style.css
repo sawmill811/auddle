@@ -126,6 +126,11 @@ a {
 
 
 }
+
+.audio-clip2 {
+    display: none;
+}
+
 .text-instructions {
     font-family: 'League Spartan', sans-serif;
     font-weight: 500;
@@ -252,6 +257,20 @@ span[id|=box] {
     transform: scaleX(0.83);
 }
 
+.finish {
+    display: none;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 400;
+    font-size: min(1.3em,2.3vh);
+    text-align: center;
+    height: 3vh;
+}
+
+#link {
+    text-decoration: underline;
+    font-size: 1.2em;
+}
+
 .keyboard {
     display: flex;
     flex-direction: column;
@@ -259,8 +278,8 @@ span[id|=box] {
     /* border: 2px solid green; */
     font-family: "Fredoka", sans-serif;
     font-weight: 400;
-    width: min(100%, 90vh);
-    height: 20vh;
+    width: min(100%, 85vh);
+    height: 17vh;
 }
 
 .keyboard > div {

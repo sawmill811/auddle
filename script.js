@@ -1,7 +1,8 @@
 // elements
 
 var era = null;
-const answer = "TALAASH";
+const answer = "SAINIK";
+const link = "https://youtu.be/JnVVlfVD9uY"
 const num_guesses = 6;
 var penalty = 0;
 var guess = [];
@@ -39,8 +40,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //     activateKeyboard();
     // });
 
-    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/talaash_main.mp3"
-    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/talaash_clue.mp3"
+    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/sainik_main.mp3"
+    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/sainik_clue.mp3"
 
     for (let i=1; i<=num_guesses; i++) {
         let row = document.querySelector(".row-"+i);
@@ -52,6 +53,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     activateKeyboard();
+
+    // console.log(currentLevel);
+
+    // if (currentLevel>2) {
+        // console.log("level >2");
+    // }
 
     cluebox.addEventListener("mouseover", function() {
         penalty = 2;
@@ -103,6 +110,13 @@ function activateKeyboard() {
     }
 }
 
+function displayAnswer() {
+    document.querySelector("#link").href = link;
+    document.querySelector("#link").innerText= link;
+    document.querySelector(".finish").style.display = "block";
+    document.querySelector(".finish").innerHTML = "answer: " + answer;
+}
+
 async function clueNeeded(cb) {
     cb.style.transform = "scale(0.2,0.17)";
     await sleep(100);
@@ -118,6 +132,7 @@ async function clueNeeded(cb) {
         message.innerHTML = finished[num_guesses];
         messageBox.style.display = "flex";
         document.documentElement.removeEventListener('keydown',handleKeys,false);
+        displayAnswer();
     }
     else {
         document.querySelector(".clue2").style.display = "flex";
@@ -128,7 +143,7 @@ async function clueNeeded(cb) {
 
     for (let i=0; i<penalty; i++) {
         document.querySelector(".row-"+(num_guesses-i)).style.opacity = "0";
-        document.querySelector(".row-"+(num_guesses-i)).style.display = "hidden";
+        document.querySelector(".row-"+(num_guesses-i)).style.display = "none";
     }
 }
 
@@ -194,15 +209,20 @@ function handleKeys(e) {
                     message.innerHTML = finished[currentLevel-1];
                     messageBox.style.display = "flex";
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
+                    displayAnswer();
                 }
                 else if (currentLevel==num_guesses-penalty){
                     message.innerHTML = finished[num_guesses+1];
                     messageBox.style.display = "flex";
                     // messageBox.before.style.width = messageBox.style.width;
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
+                    displayAnswer();
                 }
                 guess = [];
                 currentLevel+=1;
+                if (currentLevel>2) {
+                    document.querySelector(".audio-clip2").style.display = "block";
+                }
             }
         }
     }
