@@ -126,7 +126,7 @@ async function clueNeeded(cb) {
 
     console.log(currentLevel, num_guesses, penalty);
     
-    if (currentLevel>num_guesses-penalty) {
+    if (currentLevel>num_guesses) {
         let messageBox = document.querySelector(".message-box");
         let message = messageBox.firstChild;
         message.innerHTML = finished[num_guesses];
@@ -138,7 +138,7 @@ async function clueNeeded(cb) {
         document.querySelector(".clue2").style.display = "flex";
         await sleep(100);
         document.querySelector(".clue2").style.opacity = "1";
-        document.querySelector("#guess-instructions").innerHTML = "guess the movie in " + (num_guesses-penalty) +" attempts!";
+        document.querySelector("#guess-instructions").innerText = "guess the movie in 6 attempts!";
     }
 
     // for (let i=0; i<penalty; i++) {
@@ -211,13 +211,13 @@ function handleKeys(e) {
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
                     displayAnswer();
                 }
-                // else if (currentLevel==num_guesses-penalty){
-                //     message.innerHTML = finished[num_guesses+1];
-                //     messageBox.style.display = "flex";
-                //     // messageBox.before.style.width = messageBox.style.width;
-                //     document.documentElement.removeEventListener('keydown',handleKeys,false);
-                //     displayAnswer();
-                // }
+                else if (currentLevel==num_guesses-penalty){
+                    message.innerHTML = finished[num_guesses+1];
+                    messageBox.style.display = "flex";
+                    // messageBox.before.style.width = messageBox.style.width;
+                    document.documentElement.removeEventListener('keydown',handleKeys,false);
+                    displayAnswer();
+                }
                 guess = [];
                 currentLevel+=1;
                 if (currentLevel>2) {
