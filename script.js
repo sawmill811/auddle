@@ -122,7 +122,7 @@ async function clueNeeded(cb) {
     await sleep(100);
     cb.style.opacity = "0";
     cb.style.display = "none";
-    penalty = 2;
+    // penalty = 2;
 
     console.log(currentLevel, num_guesses, penalty);
     
