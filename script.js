@@ -60,27 +60,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // console.log("level >2");
     // }
 
-    cluebox.addEventListener("mouseover", function() {
-        penalty = 2;
-        for (let i=num_guesses-penalty+1; i<=num_guesses; i++) {
-            let row = document.querySelector(".row-"+i);
-            row.style.opacity = "0.5";
-        }
-        penalty = 0;
-    });
+    // cluebox.addEventListener("mouseover", function() {
+    //     penalty = 2;
+    //     for (let i=num_guesses-penalty+1; i<=num_guesses; i++) {
+    //         let row = document.querySelector(".row-"+i);
+    //         row.style.opacity = "0.5";
+    //     }
+    //     penalty = 0;
+    // });
 
-    cluebox.addEventListener("mouseout", function() {
-        if (penalty!==2) {
-            penalty = 2;
+    // cluebox.addEventListener("mouseout", function() {
+    //     if (penalty!==2) {
+    //         penalty = 2;
         
-            for (let i=num_guesses-penalty+1; i<=num_guesses; i++) {
-                let row = document.querySelector(".row-"+i);
-                row.style.opacity = "1";
-            }
+    //         for (let i=num_guesses-penalty+1; i<=num_guesses; i++) {
+    //             let row = document.querySelector(".row-"+i);
+    //             row.style.opacity = "1";
+    //         }
         
-            penalty = 0;
-        }
-    });
+    //         penalty = 0;
+    //     }
+    // });
 
     cluebox.addEventListener("click", async function() {
         clueNeeded(cluebox);
@@ -141,10 +141,10 @@ async function clueNeeded(cb) {
         document.querySelector("#guess-instructions").innerHTML = "guess the movie in " + (num_guesses-penalty) +" attempts!";
     }
 
-    for (let i=0; i<penalty; i++) {
-        document.querySelector(".row-"+(num_guesses-i)).style.opacity = "0";
-        document.querySelector(".row-"+(num_guesses-i)).style.display = "none";
-    }
+    // for (let i=0; i<penalty; i++) {
+    //     document.querySelector(".row-"+(num_guesses-i)).style.opacity = "0";
+    //     document.querySelector(".row-"+(num_guesses-i)).style.display = "none";
+    // }
 }
 
 async function setEra(input_era) {
@@ -211,13 +211,13 @@ function handleKeys(e) {
                     document.documentElement.removeEventListener('keydown',handleKeys,false);
                     displayAnswer();
                 }
-                else if (currentLevel==num_guesses-penalty){
-                    message.innerHTML = finished[num_guesses+1];
-                    messageBox.style.display = "flex";
-                    // messageBox.before.style.width = messageBox.style.width;
-                    document.documentElement.removeEventListener('keydown',handleKeys,false);
-                    displayAnswer();
-                }
+                // else if (currentLevel==num_guesses-penalty){
+                //     message.innerHTML = finished[num_guesses+1];
+                //     messageBox.style.display = "flex";
+                //     // messageBox.before.style.width = messageBox.style.width;
+                //     document.documentElement.removeEventListener('keydown',handleKeys,false);
+                //     displayAnswer();
+                // }
                 guess = [];
                 currentLevel+=1;
                 if (currentLevel>2) {
