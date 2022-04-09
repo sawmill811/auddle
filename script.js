@@ -1,8 +1,8 @@
 // elements
 
 var era = null;
-const answer = "SAINIK";
-const link = "https://youtu.be/JnVVlfVD9uY"
+const answer = "KHAMOSHI";
+const link = "https://youtu.be/EykhYi3M7yM"
 const num_guesses = 6;
 var penalty = 0;
 var guess = [];
@@ -40,8 +40,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //     activateKeyboard();
     // });
 
-    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/sainik_main.mp3"
-    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/sainik_clue.mp3"
+    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/khamoshi_main.mp3"
+    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/khamoshi_clue.mp3"
+
+    console.log(num_guesses);
 
     for (let i=1; i<=num_guesses; i++) {
         let row = document.querySelector(".row-"+i);
