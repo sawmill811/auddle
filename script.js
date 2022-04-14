@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // });
 
     //main audio
-    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/arjun_main.mp3"
+    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/arjun_clue.mp3"
     //clue audio
-    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/arjun_clue.mp3"
+    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/arjun_main.mp3"
 
     console.log(num_guesses);
 
