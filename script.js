@@ -1,8 +1,8 @@
 // elements
 
 var era = null;
-const answer = "ARJUN";
-const link = "https://youtu.be/MiDkB1pjt6A"
+const answer = "LAKSHYA";
+const link = "https://youtu.be/YoKGmYyljmc"
 const num_guesses = 6;
 var penalty = 0;
 var guess = [];
@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // });
 
     //main audio
-    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/arjun_clue.mp3"
+    document.querySelector(".clue1").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/lakshya_main.mp3"
     //clue audio
-    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/arjun_main.mp3"
+    document.querySelector(".clue2").src = "https://raw.githubusercontent.com/sawmill811/auddle/main/testAudio/lakshya_clue.mp3"
 
     console.log(num_guesses);
 
