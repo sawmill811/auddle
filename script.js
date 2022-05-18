@@ -19,6 +19,23 @@ const movies2000 = ["race","jabwemet","faltu","jannat","fanaa","partner","murder
 
 let cluebox = document.querySelector(".message-box2");
 
+// Views Counter
+
+const countEl = document.getElementById('counter');
+
+updateVisitCount();
+
+function updateVisitCount() {
+	fetch('https://api.countapi.xyz/update/sawmill/auddlev2/?amount=1')
+	.then(res => res.json())
+	.then(res => {
+		countEl.innerHTML = JSON.stringify(res.value) + " Views";
+	})
+}
+
+// To reset the counter
+// https://api.countapi.xyz/set/sawmill/auddlev2?value=0
+
 // listeners
 
 document.addEventListener('DOMContentLoaded', (event) => {

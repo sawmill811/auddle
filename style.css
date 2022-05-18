@@ -30,8 +30,8 @@ a {
     color: inherit;
 }
 
-.era {
-    /* border: 2px solid red; */
+/* .era {
+    border: 2px solid red;
     height: 70vh;
     position: absolute;
     margin: auto;
@@ -56,6 +56,14 @@ a {
 
 .era-1990:hover, .era-2000:hover, .era-2010:hover {
     transform: scale(1.1);
+} */
+
+#counter {
+    position: absolute;
+    /* transform: scale(0.5); */
+    top: 0;
+    right: 0.2em;
+    font-family: 'League Spartan', sans-serif;
 }
 
 .container {
